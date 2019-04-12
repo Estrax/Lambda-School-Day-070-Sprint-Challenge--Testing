@@ -10,7 +10,8 @@ module.exports = {
 async function getAllGames(req, res){
     await db
             .getAll()
-            .then(games => res.status(200).json(games));
+            .then(games => res.status(200).json(games))
+            .catch(err => res.status(500).json({ error: "There was an error while fetching games from the database."}));
 };
 
 async function addNewGame(req, res){
