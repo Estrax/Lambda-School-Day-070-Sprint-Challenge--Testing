@@ -55,10 +55,10 @@ TDD itself speeds up the whole development process. It's main point is to write 
 
 Your finished project must include all of the following requirements:
 
-- [ ] use `jest` and `supertest` to write the tests.
-- [ ] Write the **tests BEFORE** writing the route handlers.
+- [x] use `jest` and `supertest` to write the tests.
+- [x] Write the **tests BEFORE** writing the route handlers.
 - [ ] Your API must be have `POST` and `GET` endpoints for `/games`.
-- [ ] Write a **minimum** of three tests per endpoint.
+- [x] Write a **minimum** of three tests per endpoint.
 
 Below is a product specification covering the requirements for your endpoints.
 
