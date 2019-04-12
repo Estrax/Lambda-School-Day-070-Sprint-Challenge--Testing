@@ -136,7 +136,40 @@ describe('----- API -----', () => {
         });
 
         describe('DELETE', () => {
+            it('should get a response status code 200 on success', async () => {
+                await request(api).post('/games').send({
+                    title: 'Pacman',
+                    genre: 'Arcade',
+                    releaseYear: 1980
+                });
+                const response = await request(api).delete('/games/1');
+                expect(response.status).toBe(200);
+            });
 
+            it('should get a response status code 404 on failure', async () => {
+                const response = await request(api).delete('/games/1');
+                expect(response.status).toBe(404);
+            });
+
+            it('should respond with JSON', async () => {
+                await request(api).post('/games').send({
+                    title: 'Pacman',
+                    genre: 'Arcade',
+                    releaseYear: 1980
+                });
+                const response = await request(api).delete('/games/1');
+                expect(response.type).toBe('application/json');
+            });
+            
+            it('should get the appropriate response', async () => {
+                await request(api).post('/games').send({
+                    title: 'Pacman',
+                    genre: 'Arcade',
+                    releaseYear: 1980
+                });
+                const response = await request(api).delete('/games/1');
+                expect(response.body).toEqual({ success: true });
+            });
         });
     });
 });
