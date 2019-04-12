@@ -65,12 +65,26 @@ describe('----- API -----', () => {
                 expect(response.status).toBe(201);
             });
 
-            it('should get a response status code 422 on failure', async () => {
+            it('should get a response status code 422 on failure (incomplete data)', async () => {
                 const response = await request(api).post('/games').send({
                     title: 'Pacman',
                     releaseYear: 1980
                 });
                 expect(response.status).toBe(422);
+            });
+
+            it('should get a response status code 405 on failure (title not unique)', async () => {
+                await request(api).post('/games').send({
+                    title: 'Pacman',
+                    genre: 'Arcade',
+                    releaseYear: 1980
+                });
+                const response = await request(api).post('/games').send({
+                    title: 'Pacman',
+                    genre: 'Sport',
+                    releaseYear: 2345
+                });
+                expect(response.status).toBe(405);
             });
 
             it('should respond with JSON', async () => {
