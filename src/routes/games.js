@@ -25,13 +25,19 @@ router.route('/:id')
                 .getById(Number(req.params.id))
                 .then(
                     response => response === 0
-                        ? res.status(404).json({ message: "The game with the specified ID does not exist." })
+                        ? res.status(404).json({ error: "The game with the specified ID does not exist." })
                         : res.status(200).json(response)
                 )
                 .catch(err => res.status(500).json({ error: "Game could not be retrieved."}));
     })
     .delete(async (req, res) => {
-        res.status(200).json({ message: 'OK' });
+        await db
+                .remove(Number(req.params.id))
+                .then(response => response === 0
+                    ? res.status(404).json({ error: "The game with the specified ID does not exist." })
+                    : res.status(200).json({ success: true })
+                )
+                .catch(err => res.status(500).json({ error: "Game could not be deleted." }));
     });
 
 module.exports = router;
