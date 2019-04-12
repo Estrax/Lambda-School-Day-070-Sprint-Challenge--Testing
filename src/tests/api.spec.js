@@ -26,13 +26,13 @@ describe('----- API -----', () => {
 
             it('should respond with the array when there are games in database', async () => {
                 await request(api).post('/games').send({
-                    title: 'resource title',
+                    title: 'game title',
                     genre: 'Arcade',
                     releaseYear: 2020
                 });
 
                 await request(api).post('/games').send({
-                    title: 'resource title2',
+                    title: 'game title2',
                     genre: 'Sport',
                     releaseYear: 1978
                 });
@@ -41,13 +41,13 @@ describe('----- API -----', () => {
                 expect(response.body).toEqual([
                     {
                         id: 0,
-                        title: 'resource title',
+                        title: 'game title',
                         genre: 'Arcade',
                         releaseYear: 2020
                     },
                     {
                         id: 1,
-                        title: 'resource title2',
+                        title: 'game title2',
                         genre: 'Sport',
                         releaseYear: 1978
                     }
@@ -56,7 +56,40 @@ describe('----- API -----', () => {
         });
         
         describe('POST', () => {
+            it('should get a response status code 201 on success', async () => {
+                const response = await request(api).post('/games').send({
+                    title: 'Pacman',
+                    genre: 'Arcade',
+                    releaseYear: 1980
+                });
+                expect(response.status).toBe(201);
+            });
 
+            it('should get a response status code 422 on failure', async () => {
+                const response = await request(api).post('/games').send({
+                    title: 'Pacman',
+                    releaseYear: 1980
+                });
+                expect(response.status).toBe(422);
+            });
+
+            it('should respond with JSON', async () => {
+                const response = await request(api).post('/games').send({
+                    title: 'Pacman',
+                    genre: 'Arcade',
+                    releaseYear: 1980
+                });
+                expect(response.type).toBe('application/json');
+            });
+            
+            it('should get the appropriate response with ID', async () => {
+                const response = await request(api).post('/games').send({
+                    title: 'Pacman',
+                    genre: 'Arcade',
+                    releaseYear: 1980
+                });
+                expect(response.body).toEqual({ id: 1 });
+            });
         });
     });
     describe('ROUTE /games/:id', () => {
