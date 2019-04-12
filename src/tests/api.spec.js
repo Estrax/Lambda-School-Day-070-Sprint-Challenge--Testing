@@ -115,12 +115,12 @@ describe('----- API -----', () => {
                     genre: 'Arcade',
                     releaseYear: 1980
                 });
-                const response = await request(api).get('/games/1');
+                const response = await request(api).get('/games/0');
                 expect(response.status).toBe(200);
             });
 
             it('should get a response status code 404 on failure', async () => {
-                const response = await request(api).get('/games/1');
+                const response = await request(api).get('/games/0');
                 expect(response.status).toBe(404);
             });
 
@@ -130,7 +130,7 @@ describe('----- API -----', () => {
                     genre: 'Arcade',
                     releaseYear: 1980
                 });
-                const response = await request(api).get('/games/1');
+                const response = await request(api).get('/games/0');
                 expect(response.type).toBe('application/json');
             });
             
@@ -140,7 +140,7 @@ describe('----- API -----', () => {
                     genre: 'Arcade',
                     releaseYear: 1980
                 });
-                const response = await request(api).get('/games/1');
+                const response = await request(api).get('/games/0');
                 expect(response.body).toEqual({
                     id: 1,
                     title: 'Pacman',
@@ -157,12 +157,12 @@ describe('----- API -----', () => {
                     genre: 'Arcade',
                     releaseYear: 1980
                 });
-                const response = await request(api).delete('/games/1');
+                const response = await request(api).delete('/games/0');
                 expect(response.status).toBe(200);
             });
 
             it('should get a response status code 404 on failure', async () => {
-                const response = await request(api).delete('/games/1');
+                const response = await request(api).delete('/games/0');
                 expect(response.status).toBe(404);
             });
 
@@ -172,7 +172,7 @@ describe('----- API -----', () => {
                     genre: 'Arcade',
                     releaseYear: 1980
                 });
-                const response = await request(api).delete('/games/1');
+                const response = await request(api).delete('/games/0');
                 expect(response.type).toBe('application/json');
             });
             
@@ -182,7 +182,7 @@ describe('----- API -----', () => {
                     genre: 'Arcade',
                     releaseYear: 1980
                 });
-                const response = await request(api).delete('/games/1');
+                const response = await request(api).delete('/games/0');
                 expect(response.body).toEqual({ success: true });
             });
         });
