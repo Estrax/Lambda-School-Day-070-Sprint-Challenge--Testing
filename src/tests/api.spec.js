@@ -32,7 +32,7 @@ describe('----- API -----', () => {
                 });
 
                 await request(api).post('/games').send({
-                    title: 'game title2',
+                    title: 'second',
                     genre: 'Sport',
                     releaseYear: 1978
                 });
@@ -47,7 +47,7 @@ describe('----- API -----', () => {
                     },
                     {
                         id: 1,
-                        title: 'game title2',
+                        title: 'second',
                         genre: 'Sport',
                         releaseYear: 1978
                     }
@@ -102,7 +102,8 @@ describe('----- API -----', () => {
                     genre: 'Arcade',
                     releaseYear: 1980
                 });
-                expect(response.body).toEqual({ id: 1 });
+                console.log(response.body);
+                expect(response.body).toEqual({ id: 0 });
             });
         });
     });
