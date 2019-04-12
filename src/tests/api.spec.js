@@ -102,7 +102,6 @@ describe('----- API -----', () => {
                     genre: 'Arcade',
                     releaseYear: 1980
                 });
-                console.log(response.body);
                 expect(response.body).toEqual({ id: 0 });
             });
         });
@@ -142,7 +141,7 @@ describe('----- API -----', () => {
                 });
                 const response = await request(api).get('/games/0');
                 expect(response.body).toEqual({
-                    id: 1,
+                    id: 0,
                     title: 'Pacman',
                     genre: 'Arcade',
                     releaseYear: 1980

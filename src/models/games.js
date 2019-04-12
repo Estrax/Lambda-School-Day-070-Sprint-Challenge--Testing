@@ -1,20 +1,20 @@
 let games = [];
 
 module.exports = {
-    get,
-    post,
+    getAll,
+    insert,
     getById,
     remove,
     truncate
 }
 
-async function get(){
+async function getAll(){
     return games;
 }
 
-async function post(game){
-    if(games.findIndex(elem => elem.name === game.id) > -1){
-        return 
+async function insert(game){
+    if(games.filter(elem => elem.title === game.title).length > 0){
+        return 0;
     }
     games.push({
         id: games.length,
