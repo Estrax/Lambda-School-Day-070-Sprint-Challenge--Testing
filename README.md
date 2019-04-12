@@ -35,6 +35,12 @@ You can use `describe` as a container for your tests to organize them in the pro
 2. What is the point of `Test Driven Development`? What do you think about this approach?
 3. Mention three types of automated tests.
 
+- performance tests,
+- acceptance tests,
+- integration tests
+
++ of course the number of other kinds of tests, including unit tests, component tests, snapshot tests, regression tests, etc.
+
 ## Project Set Up
 
 - [x] fork and clone this repository.
