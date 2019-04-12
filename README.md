@@ -42,7 +42,7 @@ TDD itself speeds up the whole development process. It's main point is to write 
 - acceptance tests,
 - integration tests
 
-+ of course the number of other kinds of tests, including unit tests, component tests, snapshot tests, regression tests, etc.
+& of course the number of other kinds of tests, including unit tests, component tests, snapshot tests, regression tests, etc.
 
 ## Project Set Up
 
