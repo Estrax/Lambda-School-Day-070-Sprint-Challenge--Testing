@@ -33,6 +33,9 @@ Demonstrate your understanding of this week's concepts by answering the followin
 You can use `describe` as a container for your tests to organize them in the proper groups and to have ability to run only some of them with `.skip` and `.only`. `describe` also defines a scope for functions such as `beforeEach`, `beforeAll`, `afterEach` and `afterAll`.
 
 2. What is the point of `Test Driven Development`? What do you think about this approach?
+
+TDD itself speeds up the whole development process. It's main point is to write tests first and then the code, so before you start coding the actual application, you have the basic environment specified & described, so the automated tests can check whether your code meets the project objectives. In my opinion, TDD is extremely helpful when done right - even though it requires a little bit more time on the very beginning to prepare the tests, it drastically reduces the amount of time spent on debugging, especially with the mid-size and big projects.
+
 3. Mention three types of automated tests.
 
 - performance tests,
